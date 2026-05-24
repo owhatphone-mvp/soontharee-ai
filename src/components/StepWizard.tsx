@@ -632,7 +632,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
               </div>
               <div className="instruction-item">
                 <span className="item-num">2</span>
-                <span className="item-desc">แตะปุ่มสีเขียวด้านล่าง <strong>เพื่อเปิดห้องแชตไลน์สุนทรีย์ AI</strong></span>
+                <span className="item-desc">แตะปุ่มสีเขียวด้านล่าง <strong>ระบบจะเปิดแอป LINE ให้กดเพิ่มเพื่อนอัตโนมัติทันที (ไม่ต้องหยิบกล้องมาสแกนค่ะ)</strong></span>
               </div>
               <div className="instruction-item">
                 <span className="item-num">3</span>
