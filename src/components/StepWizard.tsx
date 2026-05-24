@@ -339,7 +339,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
           <>
             <div className="step-header">
               <h2 className="step-title">อวยพรเรื่องอะไรเพิ่มดีครับ? 🍎</h2>
-              <p className="step-subtitle">แนะนำคำถามย่อยตามธีม: จิ้มเลือกได้มากกว่าหนึ่งคำ แล้วกดถัดไปค่ะ</p>
+              <p className="step-subtitle">แนะนำคำถามย่อยตามธีม: จิ้มเลือกได้มากกว่าหนึ่งคำ แล้วกดถัดไป</p>
             </div>
             <div className="options-grid">
               {currentBlessings.map((b) => {
@@ -363,8 +363,8 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
         {step === 3 && (
           <>
             <div className="step-header">
-              <h2 className="step-title">อยากใส่เรื่องราวพิเศษอะไรในเพลงไหมคะ? 🌟</h2>
-              <p className="step-subtitle">จิ้มเรื่องที่คุณชื่นชอบเพื่อนำไปแต่งเป็นคำร้องส่วนตัวได้เลยค่ะ</p>
+              <h2 className="step-title">อยากใส่เรื่องราวพิเศษอะไรในเพลงไหม? 🌟</h2>
+              <p className="step-subtitle">จิ้มเรื่องที่คุณชื่นชอบเพื่อนำไปแต่งเป็นคำร้องส่วนตัวได้เลย</p>
             </div>
             <div className="options-grid">
               {currentSpecialDetails.map((s) => (
@@ -453,8 +453,8 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
         {step === 7 && selectedRel && (
           <>
             <div className="step-header">
-              <h2 className="step-title">ชื่อเล่นของ {selectedRel.name} คืออะไรคะ? 🎙️</h2>
-              <p className="step-subtitle">จิ้มเลือกชื่อของเขา หรือแต็ปปุ่มเสียงไมโครโฟนเพื่อส่งเสียงในแชตไลน์ค่ะ</p>
+              <h2 className="step-title">ชื่อเล่นของ {selectedRel.name} คืออะไร? 🎙️</h2>
+              <p className="step-subtitle">จิ้มเลือกชื่อของเขา หรือแตะปุ่มไมโครโฟนเพื่อส่งเสียงอัดในแชต LINE</p>
             </div>
             <div className="nicknames-grid">
               {NICKNAMES_BY_GROUP[selectedRel.key]?.map((name) => (
@@ -481,8 +481,8 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
         {step === 8 && (
           <div className="step-fade-in" style={{ display: "flex", flexDirection: "column", gap: "1rem", height: "100%", justifyContent: "space-between" }}>
             <div className="step-header">
-              <h2 className="step-title">อยากใส่เรื่องราวอื่นๆ เพิ่มเติมไหมคะ? ✍️</h2>
-              <p className="step-subtitle">เช่น ชื่อรุ่นโรงเรียน/มหาวิทยาลัย ชื่อก๊วนกอล์ฟ หรือความทรงจำที่อยากให้แต่งเพิ่มเติมค่ะ (หากไม่มีให้แตะข้ามได้เลยค่ะ)</p>
+              <h2 className="step-title">อยากใส่เรื่องราวอื่นๆ เพิ่มเติมไหม? ✍️</h2>
+              <p className="step-subtitle">เช่น ชื่อรุ่นโรงเรียน/มหาวิทยาลัย ชื่อก๊วนกอล์ฟ หรือความทรงจำที่อยากให้แต่งเพิ่มเติม (หากไม่มีให้แตะข้ามได้เลย)</p>
             </div>
 
             <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", width: "100%", maxWidth: "600px", margin: "0 auto", gap: "1.25rem" }}>
@@ -500,7 +500,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
                 style={{ background: "var(--bg-secondary)", border: "2px solid var(--primary)", color: "var(--primary)", boxShadow: "none" }}
                 onClick={() => handleProceedToSummary("")}
               >
-                ไม่มีเพิ่มเติมแล้ว ข้อมูลเท่านี้พอแล้วค่ะ 👍
+                ไม่มีเพิ่มเติมแล้ว ข้อมูลเท่านี้พอแล้ว 👍
               </button>
             </div>
 
@@ -526,7 +526,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
             <div className="step-header">
               <h2 className="step-title" style={{ color: "var(--primary)" }}>ใบสรุปข้อมูลเพลงสั่งทำ 🎁</h2>
               <p className="step-subtitle" style={{ fontSize: "1.2rem", fontWeight: "bold", color: "#fbbf24" }}>
-                👉 กรุณากดปุ่มสีเหลืองด้านล่างเพื่อคัดลอกข้อมูล และแคปรูปหน้าจอนี้เก็บไว้ค่ะ
+                👉 กรุณากดปุ่มสีเหลืองด้านล่างเพื่อคัดลอกข้อมูล และแคปรูปหน้าจอนี้เก็บไว้
               </p>
             </div>
 
@@ -622,7 +622,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
           <div className="step-fade-in" style={{ display: "flex", flexDirection: "column", gap: "1.5rem", height: "100%", justifyContent: "space-between", alignItems: "center" }}>
             <div className="step-header" style={{ width: "100%", textAlign: "center" }}>
               <h2 className="step-title" style={{ color: "#06c755" }}>ขั้นตอนสุดท้าย: ส่งข้อมูลในแชต LINE 💬</h2>
-              <p className="step-subtitle">ส่งรูปที่แคปเจอร์และวางข้อมูลที่คัดลอกมา ในไลน์แชตได้เลยค่ะ</p>
+              <p className="step-subtitle">ส่งรูปที่แคปเจอร์และวางข้อมูลที่คัดลอกมา ในไลน์แชตได้เลย</p>
             </div>
 
             <div className="line-instructions-box">
@@ -632,11 +632,11 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
               </div>
               <div className="instruction-item">
                 <span className="item-num">2</span>
-                <span className="item-desc">แตะปุ่มสีเขียวด้านล่าง <strong>ระบบจะเปิดแอป LINE ให้กดเพิ่มเพื่อนอัตโนมัติทันที (ไม่ต้องหยิบกล้องมาสแกนค่ะ)</strong></span>
+                <span className="item-desc">แตะปุ่มสีเขียวด้านล่าง <strong>ระบบจะเปิดแอป LINE ให้กดเพิ่มเพื่อนอัตโนมัติทันที (ไม่ต้องสแกนค่ะ)</strong></span>
               </div>
               <div className="instruction-item">
                 <span className="item-num">3</span>
-                <span className="item-desc">ในห้องแชต ให้<strong>แตะค้างที่ช่องพิมพ์ข้อความแล้วกด 'วาง' (Paste)</strong> และส่งรูปภาพให้เราได้เลยค่ะ!</span>
+                <span className="item-desc">ในห้องแชต ให้<strong>แตะค้างที่ช่องพิมพ์ข้อความแล้วกด 'วาง' (Paste)</strong> และส่งรูปภาพให้เราได้เลย!</span>
               </div>
             </div>
 
