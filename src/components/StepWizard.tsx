@@ -257,7 +257,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
       })
       .catch(e => console.log("Clipboard block", e));
 
-    const lineUrl = `https://line.me/R/ti/p/@soontharee_ai`;
+    const lineUrl = `https://line.me/R/ti/p/@909tiufg`;
     window.open(lineUrl, "_blank");
   };
 
