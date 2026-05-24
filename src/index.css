@@ -567,31 +567,34 @@ button, input, select, textarea {
   color: #0f172a;
 }
 
-.ticket-lyrics-preview {
-  background: #f8fafc;
-  border-radius: 8px;
-  padding: 0.75rem;
-  border: 1px solid #e2e8f0;
-  overflow-y: auto;
-  max-height: 140px;
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.lyrics-preview-title {
-  font-size: 0.9rem;
+.btn-copy-ticket {
+  background: linear-gradient(135deg, var(--primary), #eab308);
+  color: #000;
+  font-size: 1.3rem;
   font-weight: 800;
-  color: #475569;
-  margin-bottom: 0.3rem;
-  border-bottom: 1px solid #cbd5e1;
-  padding-bottom: 0.2rem;
+  padding: 0.9rem 1.8rem;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 580px;
+  justify-content: center;
 }
 
-.lyrics-preview-body {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #334155;
-  white-space: pre-line;
-  font-weight: 500;
+.btn-copy-ticket:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+}
+
+.btn-copy-ticket.copied {
+  background: #10b981;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
 }
 
 .ticket-price-badge {
