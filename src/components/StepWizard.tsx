@@ -107,7 +107,10 @@ export const StepWizard: React.FC<StepWizardProps> = ({ onAddOrder }) => {
   const [selectedRel, setSelectedRel] = useState<{ name: string; key: string } | null>(null);
   const [selectedNickname, setSelectedNickname] = useState("");
 
-  // Order Details (Generated once Step 7 is completed)
+  // Additional Information (Optional Typing)
+  const [additionalInfo, setAdditionalInfo] = useState("");
+
+  // Order Details (Generated once Step 8 is completed)
   const [orderId, setOrderId] = useState("");
   const [generatedLyrics, setGeneratedLyrics] = useState("");
   const [copied, setCopied] = useState(false);
@@ -156,6 +159,11 @@ export const StepWizard: React.FC<StepWizardProps> = ({ onAddOrder }) => {
 
   const handleSelectNickname = (nickname: string) => {
     setSelectedNickname(nickname);
+    setStep(8);
+  };
+
+  const handleProceedToSummary = (infoText: string) => {
+    setAdditionalInfo(infoText);
     
     // Generate Order ID & Custom lyrics for preview
     const randId = `ST-${Math.floor(100 + Math.random() * 900)}`;
@@ -173,7 +181,7 @@ export const StepWizard: React.FC<StepWizardProps> = ({ onAddOrder }) => {
     }
 
     const occasionClean = selectedOccasion.replace(/[\u1F600-\u1F64F\u1F300-\u1F5FF\u1F680-\u1F6FF\u2600-\u26FF\u2700-\u27BF]/g, "").trim();
-    const name = nickname === "พูดชื่อเล่นเองใน LINE 🎙️" ? "คุณคนพิเศษ" : nickname;
+    const name = selectedNickname === "พูดชื่อเล่นเองใน LINE 🎙️" ? "คุณคนพิเศษ" : selectedNickname;
     
     let specialLine = "";
     if (selectedSpecialDetail && !selectedSpecialDetail.includes("เน้นกลอนอวยพรทั่วไป")) {
@@ -181,10 +189,15 @@ export const StepWizard: React.FC<StepWizardProps> = ({ onAddOrder }) => {
       specialLine = `ร่วมเสกสรรสร้าง ${cleanDetail} สุขใจ\n`;
     }
 
+    let infoLine = "";
+    if (infoText.trim()) {
+      infoLine = `ฝากความรักกล่อมเกลาแห่ง ${infoText.trim()} ร่วมทวี\n`;
+    }
+
     const lyricsString = `[ท่อนอวยพรพิเศษ]
 ส่งท่วงทำนองบรรเลง กล่อมจิตดวงใจ
 เนื่องในโอกาส${occasionClean}อันแสนอบอุ่น
-${specialLine}ขอมอบเพลงสุนทรีย์นี้ ให้เป็นของขวัญชีวัน
+${specialLine}${infoLine}ขอมอบเพลงสุนทรีย์นี้ ให้เป็นของขวัญชีวัน
 แด่ ${name} ผู้เป็นที่รักยิ่ง
 
 [ท่อนสร้อยพรรณนา]
@@ -200,7 +213,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
 มอบความรักชั่วนิรันดร์ ตลอดปีเทอญ`;
     
     setGeneratedLyrics(lyricsString);
-    setStep(8);
+    setStep(9);
   };
 
   const getSummaryText = () => {
@@ -215,7 +228,8 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
 แนวเพลง: ${selectedGenre}
 จังหวะเพลง: ${selectedTempo}
 ความสัมพันธ์: ${selectedRel?.name}
-ชื่อเล่นผู้รับ: ${nicknameLabel}`;
+ชื่อเล่นผู้รับ: ${nicknameLabel}
+ข้อมูลเพิ่มเติม: ${additionalInfo.trim() || "ไม่มี"}`;
   };
 
   const handleCopySummary = () => {
@@ -245,8 +259,8 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
     };
     onAddOrder(newOrder);
 
-    // Proceed to LINE screen directly
-    setStep(9);
+    // Proceed to LINE screen directly (Step 10)
+    setStep(10);
   };
 
   const handleSubmitToLine = () => {
@@ -270,6 +284,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
     setSelectedTempo("");
     setSelectedRel(null);
     setSelectedNickname("");
+    setAdditionalInfo("");
     setOrderId("");
     setGeneratedLyrics("");
     setCopied(false);
@@ -277,15 +292,15 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
 
   return (
     <div className="wizard-card">
-      {/* Stepper Progress Bar (Step 1 to 7) */}
-      {step <= 7 && (
+      {/* Stepper Progress Bar (Step 1 to 8) */}
+      {step <= 8 && (
         <div className="wizard-progress">
           <div className="progress-line"></div>
           <div 
             className="progress-line-active" 
-            style={{ width: `${((step - 1) / 6) * 100}%` }}
+            style={{ width: `${((step - 1) / 7) * 100}%` }}
           ></div>
-          {[1, 2, 3, 4, 5, 6, 7].map((s) => (
+          {[1, 2, 3, 4, 5, 6, 7, 8].map((s) => (
             <div 
               key={s} 
               className={`progress-step ${step === s ? "active" : ""} ${step > s ? "completed" : ""}`}
@@ -462,8 +477,51 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
           </>
         )}
 
-        {/* STEP 8: Clean Receipt Summary Ticket */}
+        {/* STEP 8 [NEW]: Additional Info */}
         {step === 8 && (
+          <div className="step-fade-in" style={{ display: "flex", flexDirection: "column", gap: "1rem", height: "100%", justifyContent: "space-between" }}>
+            <div className="step-header">
+              <h2 className="step-title">อยากใส่เรื่องราวอื่นๆ เพิ่มเติมไหมคะ? ✍️</h2>
+              <p className="step-subtitle">เช่น ชื่อรุ่นโรงเรียน/มหาวิทยาลัย ชื่อก๊วนกอล์ฟ หรือความทรงจำที่อยากให้แต่งเพิ่มเติมค่ะ (หากไม่มีให้แตะข้ามได้เลยค่ะ)</p>
+            </div>
+
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", width: "100%", maxWidth: "600px", margin: "0 auto", gap: "1.25rem" }}>
+              <textarea
+                value={additionalInfo}
+                onChange={(e) => setAdditionalInfo(e.target.value)}
+                placeholder="พิมพ์รายละเอียดเพิ่มเติม เช่น รุ่นสิงห์แดง, ก๊วนกอล์ฟ 8 เซียน, เพื่อนร่วมรุ่น 2515, ชอบขี่จักรยาน..."
+                className="elder-textarea"
+                rows={4}
+              />
+              
+              {/* Giant No additional info button */}
+              <button 
+                className="btn-line-submit-huge" 
+                style={{ background: "var(--bg-secondary)", border: "2px solid var(--primary)", color: "var(--primary)", boxShadow: "none" }}
+                onClick={() => handleProceedToSummary("")}
+              >
+                ไม่มีเพิ่มเติมแล้ว ข้อมูลเท่านี้พอแล้วค่ะ 👍
+              </button>
+            </div>
+
+            <div className="wizard-footer" style={{ borderTop: "none" }}>
+              <button className="btn-elder btn-elder-back" onClick={() => setStep(7)}>
+                <ArrowLeft size={18} /> ย้อนกลับ
+              </button>
+              
+              <button 
+                className="btn-elder btn-elder-next"
+                disabled={!additionalInfo.trim()}
+                onClick={() => handleProceedToSummary(additionalInfo)}
+              >
+                บันทึกและไปต่อ ➡️
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* STEP 9: Clean Receipt Summary Ticket */}
+        {step === 9 && (
           <div className="step-fade-in" style={{ display: "flex", flexDirection: "column", gap: "1rem", height: "100%", justifyContent: "space-between" }}>
             <div className="step-header">
               <h2 className="step-title" style={{ color: "var(--primary)" }}>ใบสรุปข้อมูลเพลงสั่งทำ 🎁</h2>
@@ -520,9 +578,15 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
                       {selectedNickname === "พูดชื่อเล่นเองใน LINE 🎙️" ? "🎙️ อัดเสียงพูดชื่อใน LINE" : selectedNickname}
                     </span>
                   </div>
+                  <div className="ticket-row-premium" style={{ gridColumn: "span 2" }}>
+                    <span className="ticket-label-premium">ข้อมูลเพิ่มเติม:</span>
+                    <span className="ticket-value-premium" style={{ color: "var(--success)", fontWeight: "bold" }}>
+                      {additionalInfo.trim() || "-"}
+                    </span>
+                  </div>
                 </div>
 
-                <div className="ticket-price-badge" style={{ marginTop: "0.5rem" }}>
+                <div className="ticket-price-badge" style={{ marginTop: "0.25rem" }}>
                   ร่วมสมทบทุนตามความพึงพอใจภายหลังได้รับเพลง 💛
                 </div>
               </div>
@@ -539,7 +603,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
             </div>
 
             <div className="wizard-footer" style={{ borderTop: "none" }}>
-              <button className="btn-elder btn-elder-back" onClick={() => setStep(7)}>
+              <button className="btn-elder btn-elder-back" onClick={() => setStep(8)}>
                 <ArrowLeft size={18} /> ย้อนกลับ
               </button>
               <button 
@@ -553,8 +617,8 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
           </div>
         )}
 
-        {/* STEP 9: Clean LINE Submission Screen */}
-        {step === 9 && (
+        {/* STEP 10: Clean LINE Submission Screen */}
+        {step === 10 && (
           <div className="step-fade-in" style={{ display: "flex", flexDirection: "column", gap: "1.5rem", height: "100%", justifyContent: "space-between", alignItems: "center" }}>
             <div className="step-header" style={{ width: "100%", textAlign: "center" }}>
               <h2 className="step-title" style={{ color: "#06c755" }}>ขั้นตอนสุดท้าย: ส่งข้อมูลในแชต LINE 💬</h2>
@@ -583,7 +647,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
             </div>
 
             <div className="wizard-footer" style={{ borderTop: "none", width: "100%", justifyContent: "space-between" }}>
-              <button className="btn-elder btn-elder-back" onClick={() => setStep(8)}>
+              <button className="btn-elder btn-elder-back" onClick={() => setStep(9)}>
                 <ArrowLeft size={18} /> ย้อนกลับ
               </button>
               <button 
