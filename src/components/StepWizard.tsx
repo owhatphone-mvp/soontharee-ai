@@ -399,11 +399,10 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
               {TEMPOS.map((t) => (
                 <div 
                   key={t.name}
-                  className={`option-card ${selectedTempo === t.name ? "selected" : ""}`}
+                  className={`option-card tempo-card ${selectedTempo === t.name ? "selected" : ""}`}
                   onClick={() => handleSelectTempo(t.name)}
-                  style={{ padding: "2.5rem 1rem" }}
                 >
-                  <h3 className="option-title" style={{ fontSize: "1.7rem" }}>{t.name}</h3>
+                  <h3 className="option-title">{t.name}</h3>
                   <p className="option-description">{t.desc}</p>
                 </div>
               ))}
@@ -422,11 +421,10 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
               {RELATIONSHIPS.map((r) => (
                 <div 
                   key={r.name}
-                  className="option-card"
+                  className={`option-card rel-card ${selectedRel?.name === r.name ? "selected" : ""}`}
                   onClick={() => handleSelectRel(r)}
-                  style={{ padding: "1.25rem 0.5rem" }}
                 >
-                  <h3 className="option-title" style={{ fontSize: "1.35rem" }}>{r.name}</h3>
+                  <h3 className="option-title">{r.name}</h3>
                   <p className="option-description">{r.desc}</p>
                 </div>
               ))}

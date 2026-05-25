@@ -402,6 +402,21 @@ button, input, select, textarea {
   line-height: 1.3;
 }
 
+/* Custom sizes for specific step cards */
+.tempo-card {
+  padding: 2.5rem 1rem;
+}
+.tempo-card .option-title {
+  font-size: 1.7rem;
+}
+
+.rel-card {
+  padding: 1.25rem 0.5rem;
+}
+.rel-card .option-title {
+  font-size: 1.35rem;
+}
+
 /* Dynamic Nicknames Grid (12 items 3x4 or 2x6) */
 .nicknames-grid {
   display: grid;
@@ -780,163 +795,191 @@ button, input, select, textarea {
 /* Media Queries (Strictly enforcing no-scroll scales and screen lock) */
 @media (max-width: 768px) {
   :root {
-    --size-title: 1.4rem;
-    --size-subtitle: 0.9rem;
-    --size-text: 0.85rem;
-    --size-card-title: 1.05rem;
-    --size-card-desc: 0.75rem;
-    --size-btn: 1.15rem;
+    --size-title: 1.25rem;
+    --size-subtitle: 0.85rem;
+    --size-text: 0.8rem;
+    --size-card-title: 0.95rem;
+    --size-card-desc: 0.7rem;
+    --size-btn: 1.05rem;
   }
   
   .app-container {
-    padding: 0.25rem 0.5rem 0.5rem;
+    padding: 0.2rem 0.4rem 0.4rem;
     height: 100dvh;
   }
   
   .app-header {
-    padding: 0.25rem 0;
+    padding: 0.15rem 0;
   }
   
   .brand-icon {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
   }
   
   .brand-name {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
+  }
+
+  .brand-subtitle {
+    display: none;
   }
   
   .wizard-card {
-    padding: 0.75rem;
+    padding: 0.6rem;
+    border-radius: 14px;
   }
   
   .step-header {
-    margin-bottom: 0.4rem;
-  }
-
-  .wizard-progress {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
   }
 
   .options-grid {
     overflow-y: auto;
-    max-height: 42dvh;
-    padding: 0.4rem;
+    max-height: 46dvh;
+    padding: 0.2rem;
     align-content: start;
-    gap: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .option-card {
+    padding: 0.4rem 0.5rem;
+    gap: 0.15rem;
+    border-width: 2px;
+    border-radius: 12px;
+    min-height: 52px;
+  }
+
+  .option-icon-wrapper {
+    font-size: 1.4rem;
+  }
+
+  .tempo-card {
+    padding: 0.75rem 0.4rem;
+  }
+  .tempo-card .option-title {
+    font-size: 1.1rem;
+  }
+
+  .rel-card {
+    padding: 0.5rem 0.2rem;
+  }
+  .rel-card .option-title {
+    font-size: 1.0rem;
   }
 
   .nicknames-grid {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    gap: 0.4rem;
+    gap: 0.35rem;
     overflow-y: auto;
-    max-height: 42dvh;
-    padding: 0.4rem;
+    max-height: 44dvh;
+    padding: 0.2rem;
   }
   
   .nickname-card {
-    font-size: 1.0rem;
-    padding: 0.35rem;
+    font-size: 0.95rem;
+    padding: 0.25rem 0.35rem;
   }
 
   .additional-info-wrapper {
     overflow-y: auto;
-    max-height: 42dvh;
-    gap: 0.6rem;
+    max-height: 44dvh;
+    gap: 0.4rem;
   }
 
   .receipt-single-column {
     overflow-y: auto;
-    max-height: 40dvh;
-    padding: 0.4rem;
+    max-height: 42dvh;
+    padding: 0.2rem;
   }
 
   .receipt-ticket-premium {
-    padding: 0.6rem;
+    padding: 0.4rem 0.6rem;
     max-height: none;
+    gap: 0.3rem;
   }
 
   .ticket-logo-premium {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
   }
 
   .ticket-details-premium {
     grid-template-columns: 1fr;
-    gap: 0.2rem;
-    padding-bottom: 0.4rem;
+    gap: 0.15rem;
+    padding-bottom: 0.3rem;
   }
 
   .ticket-row-premium {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
   .ticket-price-badge {
-    font-size: 1.05rem;
-    padding: 0.35rem;
+    font-size: 0.95rem;
+    padding: 0.25rem;
   }
 
   .donation-card-expanded {
-    padding: 1rem;
-    gap: 0.6rem;
+    padding: 0.8rem;
+    gap: 0.4rem;
   }
 
   .donation-main-text {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
   }
 
   .donation-heart-animated {
-    font-size: 2.2rem;
+    font-size: 2.0rem;
   }
 
   .line-instructions-box {
-    padding: 0.85rem;
-    gap: 0.6rem;
+    padding: 0.6rem 0.8rem;
+    gap: 0.4rem;
     overflow-y: auto;
     max-height: 38dvh;
   }
 
   .instruction-item {
-    gap: 0.4rem;
+    gap: 0.3rem;
   }
 
   .item-num {
-    width: 20px;
-    height: 20px;
-    font-size: 0.9rem;
+    width: 18px;
+    height: 18px;
+    font-size: 0.8rem;
   }
 
   .item-desc {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
   .btn-line-submit-huge {
-    padding: 0.75rem;
-    font-size: 1.15rem;
-    border-radius: 14px;
+    padding: 0.6rem;
+    font-size: 1.05rem;
+    border-radius: 12px;
   }
 
   .elder-textarea {
-    font-size: 1.1rem;
-    padding: 0.75rem;
-    border-radius: 12px;
+    font-size: 1.05rem;
+    padding: 0.6rem;
+    border-radius: 10px;
   }
 
   .btn-elder {
-    padding: 0.5rem 1.25rem;
+    padding: 0.4rem 1rem;
     font-size: var(--size-btn);
-    border-radius: 12px;
+    border-radius: 10px;
   }
 
   .wizard-footer {
-    padding-top: 0.5rem;
-    gap: 0.4rem;
+    padding-top: 0.35rem;
+    gap: 0.3rem;
   }
 
   .btn-copy-ticket {
-    padding: 0.7rem 1.25rem;
-    font-size: 1.1rem;
-    border-radius: 12px;
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    border-radius: 10px;
   }
 }
 
