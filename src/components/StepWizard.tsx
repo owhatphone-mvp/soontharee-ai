@@ -636,7 +636,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
               </div>
               <div className="instruction-item">
                 <span className="item-num">3</span>
-                <span className="item-desc">ในห้องแชต ให้<strong>แตะค้างที่ช่องพิมพ์ข้อความแล้วกด 'วาง' (Paste)</strong> และส่งรูปภาพให้เราได้เลย!</span>
+                <span className="item-desc">ในห้องแชต ให้<strong>แตะค้างที่ช่องพิมพ์ข้อความแล้วกด 'วาง' (Paste)</strong> และส่งรูปภาพให้เราได้เลย! <br/><span style={{ color: "var(--primary)", fontWeight: "bold", fontSize: "0.9em" }}>💡 หากวางข้อความไม่เป็น ไม่ต้องกังวลเลย แค่ส่งรูปภาพที่แคปไว้ให้แอดมินในไลน์ก็พอแล้ว</span></span>
               </div>
             </div>
 
