@@ -304,7 +304,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
               <h2 className="step-title">เลือกโอกาสพิเศษ 🎂</h2>
               <p className="step-subtitle">เพลงชิ้นเอกเพื่อคนที่คุณรักชิ้นนี้ จะแต่งขึ้นเนื่องในวันสำคัญใดดี?</p>
             </div>
-            <div className="options-grid">
+            <div className="options-grid cols-1-mobile">
               {OCCASIONS.map((o) => (
                 <div 
                   key={o.name}
@@ -326,7 +326,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
               <h2 className="step-title">อวยพรเรื่องอะไรเพิ่มดี? 🍎</h2>
               <p className="step-subtitle">แนะนำคำถามย่อยตามธีม: จิ้มเลือกได้มากกว่าหนึ่งคำ แล้วกดถัดไป</p>
             </div>
-            <div className="options-grid">
+            <div className="options-grid cols-1-mobile">
               {currentBlessings.map((b) => {
                 const isSelected = selectedBlessings.includes(b.name);
                 return (
@@ -351,7 +351,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
               <h2 className="step-title">อยากใส่เรื่องราวพิเศษอะไรในเพลงไหม? 🌟</h2>
               <p className="step-subtitle">จิ้มเรื่องที่คุณชื่นชอบเพื่อนำไปแต่งเป็นคำร้องส่วนตัวได้เลย</p>
             </div>
-            <div className="options-grid">
+            <div className="options-grid cols-1-mobile">
               {currentSpecialDetails.map((s) => (
                 <div 
                   key={s.name}
@@ -373,7 +373,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
               <h2 className="step-title">เลือกแนวเพลงที่ชอบ 🌾</h2>
               <p className="step-subtitle">คุณตาคุณยายชอบฟังทำนองเสียงเพลงและดนตรีแนวไหนดี?</p>
             </div>
-            <div className="options-grid">
+            <div className="options-grid cols-1-mobile">
               {GENRES.map((g) => (
                 <div 
                   key={g.name}
@@ -395,7 +395,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
               <h2 className="step-title">เลือกจังหวะอารมณ์ 🐢</h2>
               <p className="step-subtitle">ชอบทำนองเพลงฟังสบายซึ้งใจ หรือ เร็วโจ๊ะๆ ขยับเต้นสนุกสนานดี?</p>
             </div>
-            <div className="options-grid" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
+            <div className="options-grid cols-1-mobile" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
               {TEMPOS.map((t) => (
                 <div 
                   key={t.name}
@@ -417,7 +417,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
               <h2 className="step-title">เพลงนี้จะมอบให้ใครดี? 👶</h2>
               <p className="step-subtitle">จิ้มระบุกลุ่มความสัมพันธ์ เพื่อประกอบกลอนคำร้องให้จับใจ</p>
             </div>
-            <div className="options-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+            <div className="options-grid cols-2-mobile" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
               {RELATIONSHIPS.map((r) => (
                 <div 
                   key={r.name}
@@ -605,27 +605,26 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
           <div className="step-fade-in" style={{ display: "flex", flexDirection: "column", gap: "1.5rem", height: "100%", justifyContent: "space-between", alignItems: "center" }}>
             <div className="step-header" style={{ width: "100%", textAlign: "center" }}>
               <h2 className="step-title" style={{ color: "#06c755" }}>ขั้นตอนสุดท้าย: ส่งข้อมูลในแชต LINE 💬</h2>
-              <p className="step-subtitle">ส่งรูปที่แคปเจอร์และวางข้อมูลที่คัดลอกมา ในไลน์แชตได้เลย</p>
             </div>
 
             <div className="line-instructions-box">
               <div className="instruction-item">
                 <span className="item-num">1</span>
-                <span className="item-desc"><strong>แคปรูปภาพหน้าจอ</strong> ใบสรุปข้อมูลการ์ดที่แล้วเก็บไว้</span>
+                <span className="item-desc"><strong>แคปหน้าจอ</strong> ใบสรุปเก็บไว้ 📸</span>
               </div>
               <div className="instruction-item">
                 <span className="item-num">2</span>
-                <span className="item-desc">แตะปุ่มสีเขียวด้านล่าง <strong>ระบบจะเปิดแอป LINE และพิมพ์ข้อความสั่งซื้อให้อัตโนมัติ</strong></span>
+                <span className="item-desc">แตะปุ่มสีเขียวด้านล่างเพื่อ<strong>เปิดไลน์</strong> 💬</span>
               </div>
               <div className="instruction-item">
                 <span className="item-num">3</span>
-                <span className="item-desc">ในแอป LINE ให้กดปุ่ม <strong>"ส่ง" (Send)</strong> และกดส่งรูปภาพที่แคปไว้ให้แอดมินได้เลย! <br/><span style={{ color: "var(--primary)", fontWeight: "bold", fontSize: "0.9em" }}>💡 หากข้อความไม่ขึ้นพิมพ์อัตโนมัติ แค่ส่งรูปภาพที่แคปไว้ให้แอดมินก็พอแล้ว</span></span>
+                <span className="item-desc">กดปุ่ม <strong>"ส่ง" (Send)</strong> ในไลน์ และส่งรูปที่แคปไว้ให้แอดมิน 📤</span>
               </div>
             </div>
 
             <div style={{ width: "100%", display: "flex", flexDirection: "column", gap: "1rem" }}>
               <button className="btn-line-submit-huge" onClick={handleSubmitToLine}>
-                เปิดแอป LINE เพื่อส่งข้อมูลสั่งทำเพลง 💬
+                เปิด LINE เพื่อส่งข้อมูล 💬
               </button>
             </div>
 

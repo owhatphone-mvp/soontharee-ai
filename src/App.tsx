@@ -22,12 +22,12 @@ function App() {
       <div className="bg-decorations"></div>
 
       {/* Header Bar */}
-      <header className="app-header" style={{ justifyContent: "center" }}>
-        <div className="brand" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.25rem" }}>
-          <div className="brand-icon" style={{ margin: 0 }}>
-            <Music size={28} strokeWidth={2.5} />
+      <header className="app-header">
+        <div className="brand">
+          <div className="brand-icon">
+            <Music size={24} strokeWidth={2.5} />
           </div>
-          <div className="brand-name" style={{ textAlign: "center" }}>
+          <div className="brand-name">
             Soontharee AI
             <span className="brand-subtitle">สุนทรีย์ AI • เพลงสั่งทำของขวัญความทรงจำผู้สูงอายุ</span>
           </div>
