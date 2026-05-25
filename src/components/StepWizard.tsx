@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArrowLeft, Check } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import type { Order } from "./HistoryDashboard";
 
 interface StepWizardProps {
@@ -294,24 +294,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
 
   return (
     <div className="wizard-card">
-      {/* Stepper Progress Bar (Step 1 to 8) */}
-      {step <= 8 && (
-        <div className="wizard-progress">
-          <div className="progress-line"></div>
-          <div 
-            className="progress-line-active" 
-            style={{ width: `${((step - 1) / 7) * 100}%` }}
-          ></div>
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((s) => (
-            <div 
-              key={s} 
-              className={`progress-step ${step === s ? "active" : ""} ${step > s ? "completed" : ""}`}
-            >
-              {step > s ? <Check size={12} /> : s}
-            </div>
-          ))}
-        </div>
-      )}
+
 
       <div className="step-container">
         {/* STEP 1: Occasion */}
