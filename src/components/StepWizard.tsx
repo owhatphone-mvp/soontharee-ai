@@ -265,13 +265,15 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
 
   const handleSubmitToLine = () => {
     const text = getSummaryText();
+    
+    // Copy as fallback
     navigator.clipboard.writeText(text)
-      .then(() => {
-        console.log("Clipboard write success");
-      })
+      .then(() => console.log("Clipboard write success"))
       .catch(e => console.log("Clipboard block", e));
 
-    const lineUrl = `https://line.me/R/ti/p/@909tiufg`;
+    // Open LINE with prefilled text directly!
+    const encodedText = encodeURIComponent(text);
+    const lineUrl = `https://line.me/R/oaMessage/%40909tiufg/?${encodedText}`;
     window.open(lineUrl, "_blank");
   };
 
@@ -628,15 +630,15 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
             <div className="line-instructions-box">
               <div className="instruction-item">
                 <span className="item-num">1</span>
-                <span className="item-desc"><strong>แคปรูปภาพหน้าจอ</strong> ใบสรุปข้อมูลการ์ดที่แล้วไว้</span>
+                <span className="item-desc"><strong>แคปรูปภาพหน้าจอ</strong> ใบสรุปข้อมูลการ์ดที่แล้วเก็บไว้</span>
               </div>
               <div className="instruction-item">
                 <span className="item-num">2</span>
-                <span className="item-desc">แตะปุ่มสีเขียวด้านล่าง <strong>ระบบจะเปิดแอป LINE ให้กดเพิ่มเพื่อนอัตโนมัติทันที (ไม่ต้องสแกน)</strong></span>
+                <span className="item-desc">แตะปุ่มสีเขียวด้านล่าง <strong>ระบบจะเปิดแอป LINE และพิมพ์ข้อความสั่งซื้อให้อัตโนมัติ</strong></span>
               </div>
               <div className="instruction-item">
                 <span className="item-num">3</span>
-                <span className="item-desc">ในห้องแชต ให้<strong>แตะค้างที่ช่องพิมพ์ข้อความแล้วกด 'วาง' (Paste)</strong> และส่งรูปภาพให้เราได้เลย! <br/><span style={{ color: "var(--primary)", fontWeight: "bold", fontSize: "0.9em" }}>💡 หากวางข้อความไม่เป็น ไม่ต้องกังวลเลย แค่ส่งรูปภาพที่แคปไว้ให้แอดมินในไลน์ก็พอแล้ว</span></span>
+                <span className="item-desc">ในแอป LINE ให้กดปุ่ม <strong>"ส่ง" (Send)</strong> และกดส่งรูปภาพที่แคปไว้ให้แอดมินได้เลย! <br/><span style={{ color: "var(--primary)", fontWeight: "bold", fontSize: "0.9em" }}>💡 หากข้อความไม่ขึ้นพิมพ์อัตโนมัติ แค่ส่งรูปภาพที่แคปไว้ให้แอดมินก็พอแล้ว</span></span>
               </div>
             </div>
 
