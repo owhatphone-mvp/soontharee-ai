@@ -317,7 +317,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
           <>
             <div className="step-header">
               <h2 className="step-title">เลือกโอกาสพิเศษ 🎂</h2>
-              <p className="step-subtitle">เพลงชิ้นเอกเพื่อคนที่คุณรักชิ้นนี้ จะแต่งขึ้นเนื่องในวันสำคัญใดดีครับ?</p>
+              <p className="step-subtitle">เพลงชิ้นเอกเพื่อคนที่คุณรักชิ้นนี้ จะแต่งขึ้นเนื่องในวันสำคัญใดดี?</p>
             </div>
             <div className="options-grid">
               {OCCASIONS.map((o) => (
@@ -338,7 +338,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
         {step === 2 && (
           <>
             <div className="step-header">
-              <h2 className="step-title">อวยพรเรื่องอะไรเพิ่มดีครับ? 🍎</h2>
+              <h2 className="step-title">อวยพรเรื่องอะไรเพิ่มดี? 🍎</h2>
               <p className="step-subtitle">แนะนำคำถามย่อยตามธีม: จิ้มเลือกได้มากกว่าหนึ่งคำ แล้วกดถัดไป</p>
             </div>
             <div className="options-grid">
@@ -386,7 +386,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
           <>
             <div className="step-header">
               <h2 className="step-title">เลือกแนวเพลงที่ชอบ 🌾</h2>
-              <p className="step-subtitle">คุณตาคุณยายชอบฟังทำนองเสียงเพลงและดนตรีแนวไหนดีครับ?</p>
+              <p className="step-subtitle">คุณตาคุณยายชอบฟังทำนองเสียงเพลงและดนตรีแนวไหนดี?</p>
             </div>
             <div className="options-grid">
               {GENRES.map((g) => (
@@ -408,7 +408,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
           <>
             <div className="step-header">
               <h2 className="step-title">เลือกจังหวะอารมณ์ 🐢</h2>
-              <p className="step-subtitle">ชอบทำนองเพลงฟังสบายซึ้งใจ หรือ เร็วโจ๊ะๆ ขยับเต้นสนุกสนานดีครับ?</p>
+              <p className="step-subtitle">ชอบทำนองเพลงฟังสบายซึ้งใจ หรือ เร็วโจ๊ะๆ ขยับเต้นสนุกสนานดี?</p>
             </div>
             <div className="options-grid" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
               {TEMPOS.map((t) => (
@@ -430,7 +430,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
         {step === 6 && (
           <>
             <div className="step-header">
-              <h2 className="step-title">เพลงนี้จะมอบให้ใครครับ? 👶</h2>
+              <h2 className="step-title">เพลงนี้จะมอบให้ใครดี? 👶</h2>
               <p className="step-subtitle">จิ้มระบุกลุ่มความสัมพันธ์ เพื่อประกอบกลอนคำร้องให้จับใจ</p>
             </div>
             <div className="options-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
@@ -485,7 +485,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
               <p className="step-subtitle">เช่น ชื่อรุ่นโรงเรียน/มหาวิทยาลัย ชื่อก๊วนกอล์ฟ หรือความทรงจำที่อยากให้แต่งเพิ่มเติม (หากไม่มีให้แตะข้ามได้เลย)</p>
             </div>
 
-            <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", width: "100%", maxWidth: "600px", margin: "0 auto", gap: "1.25rem" }}>
+            <div className="additional-info-wrapper">
               <textarea
                 value={additionalInfo}
                 onChange={(e) => setAdditionalInfo(e.target.value)}
@@ -632,7 +632,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
               </div>
               <div className="instruction-item">
                 <span className="item-num">2</span>
-                <span className="item-desc">แตะปุ่มสีเขียวด้านล่าง <strong>ระบบจะเปิดแอป LINE ให้กดเพิ่มเพื่อนอัตโนมัติทันที (ไม่ต้องสแกนค่ะ)</strong></span>
+                <span className="item-desc">แตะปุ่มสีเขียวด้านล่าง <strong>ระบบจะเปิดแอป LINE ให้กดเพิ่มเพื่อนอัตโนมัติทันที (ไม่ต้องสแกน)</strong></span>
               </div>
               <div className="instruction-item">
                 <span className="item-num">3</span>
@@ -654,11 +654,6 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
                 className="btn-elder btn-elder-reset"
                 onClick={handleReset}
                 style={{ 
-                  background: "var(--bg-secondary)", 
-                  border: "2px solid var(--primary)", 
-                  color: "var(--primary)",
-                  padding: "0.75rem 1.5rem",
-                  borderRadius: "16px",
                   fontWeight: "bold",
                   cursor: "pointer"
                 }}
@@ -680,15 +675,20 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
               ย้อนกลับ
             </button>
 
-            {step === 2 && (
-              <button 
-                className="btn-elder btn-elder-next"
-                disabled={selectedBlessings.length === 0}
-                onClick={() => setStep(3)}
-              >
-                ขั้นตอนถัดไป
-              </button>
-            )}
+            <button 
+              className="btn-elder btn-elder-next"
+              disabled={
+                (step === 2 && selectedBlessings.length === 0) ||
+                (step === 3 && !selectedSpecialDetail) ||
+                (step === 4 && !selectedGenre) ||
+                (step === 5 && !selectedTempo) ||
+                (step === 6 && !selectedRel) ||
+                (step === 7 && !selectedNickname)
+              }
+              onClick={() => setStep(step + 1)}
+            >
+              ขั้นตอนถัดไป
+            </button>
           </div>
         )}
       </div>

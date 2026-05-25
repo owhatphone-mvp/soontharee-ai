@@ -35,7 +35,7 @@ function App() {
       </header>
 
       {/* Main Container Frame */}
-      <main className="main-content" style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "calc(100vh - 90px)" }}>
+      <main className="main-content" style={{ display: "flex", flexDirection: "column", minHeight: 0 }}>
         <StepWizard
           onAddOrder={handleAddOrder}
         />
