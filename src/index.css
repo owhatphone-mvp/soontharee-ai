@@ -1,34 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;600;700;800&family=Chonburi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;600;700;800&family=Chonburi&display=swap');
 
 :root {
-  /* Color Palette - Warm, nostalgic, premium gold & deep amber */
-  --bg-primary: #0a0a0c;
-  --bg-secondary: #121218;
-  --bg-tertiary: #1b1b26;
+  /* Color Palette - Premium royal violet background & warm gold details */
+  --bg-primary: #0a0814; /* Deep space midnight-violet */
+  --bg-secondary: #130f24; /* Rich slate-violet */
+  --bg-tertiary: #1b1633; /* Lighter violet */
   
-  --primary: #f59e0b; /* Amber 500 */
-  --primary-hover: #d97706; /* Amber 600 */
-  --primary-light: rgba(245, 158, 11, 0.12);
-  --primary-glow: rgba(245, 158, 11, 0.4);
+  --primary: #fbbf24; /* Warm Gold (Amber 400) */
+  --primary-hover: #f59e0b; /* Golden Amber (Amber 500) */
+  --primary-light: rgba(251, 191, 36, 0.08);
+  --primary-glow: rgba(251, 191, 36, 0.35);
   
   --text-primary: #f8fafc;
   --text-secondary: #cbd5e1;
-  --text-muted: #64748b;
+  --text-muted: #8b85a3; /* Violet-tinted muted text */
   
   --success: #10b981;
   --error: #ef4444;
   --border: rgba(255, 255, 255, 0.08);
-  --glass-bg: rgba(18, 18, 24, 0.65);
-  --glass-border: rgba(255, 255, 255, 0.04);
+  --glass-bg: rgba(19, 15, 36, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.06);
 
-  --font-thai: 'Sarabun', sans-serif;
+  --font-thai: 'Prompt', sans-serif; /* Modern highly readable Thai font */
   --font-eng: 'Outfit', sans-serif;
   --font-handwritten: 'Chonburi', cursive;
   
-  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.7);
-  --shadow-glow: 0 0 15px rgba(245, 158, 11, 0.2);
+  --shadow-lg: 0 15px 35px rgba(0, 0, 0, 0.8);
+  --shadow-glow: 0 0 20px rgba(251, 191, 36, 0.25);
 
   /* Large readable font sizes standard for seniors */
   --size-title: 2.3rem;
@@ -90,9 +90,10 @@ button, input, select, textarea {
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: -1;
   pointer-events: none;
-  background-image: 
-    radial-gradient(circle at 10% 20%, rgba(245, 158, 11, 0.04) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(245, 158, 11, 0.03) 0%, transparent 50%);
+  background: 
+    radial-gradient(circle at 15% 15%, rgba(139, 92, 246, 0.09) 0%, transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(251, 191, 36, 0.07) 0%, transparent 55%),
+    #08060f; /* Midnight dark violet background */
 }
 
 /* Main Layout Structure */
@@ -320,25 +321,29 @@ button, input, select, textarea {
   color: #000;
 }
 
-/* Step Content Box (Takes remaining space, centres elements) */
+/* Step Content Box (Takes remaining space, naturally flows) */
 .step-container {
   flex: 1 1 0%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* title + options + footer */
+  justify-content: flex-start;
+  gap: 1rem;
   overflow: hidden;
 }
 
 .step-header {
   text-align: center;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.25rem;
   flex: 0 0 auto;
 }
 
 .step-title {
   font-size: var(--size-title);
   font-weight: 800;
-  color: var(--text-primary);
+  background: linear-gradient(135deg, #ffffff 40%, #fbbf24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
 }
 
 .step-subtitle {
@@ -346,24 +351,23 @@ button, input, select, textarea {
   color: var(--text-secondary);
 }
 
-/* Options Grid Layout (2x2 fits perfectly in viewport) */
+/* Options Grid Layout (Fills remaining height) */
 .options-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-  flex: 1 1 0%;
-  align-content: center;
+  flex: 1 1 auto;
   max-width: 800px;
   margin: 0 auto;
   width: 100%;
 }
 
-/* Big Tap Option Card */
+/* Premium Card Design */
 .option-card {
-  background: var(--bg-secondary);
-  border: 3px solid var(--border);
-  border-radius: 16px;
-  padding: 1rem;
+  background: linear-gradient(145deg, #1b1633 0%, #110d22 100%);
+  border: 2px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  padding: 1.25rem 1rem;
   text-align: center;
   cursor: pointer;
   transition: var(--transition);
@@ -372,17 +376,19 @@ button, input, select, textarea {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
 
 .option-card:hover {
-  transform: scale(1.02);
-  border-color: rgba(245, 158, 11, 0.5);
+  transform: translateY(-2px);
+  border-color: rgba(251, 191, 36, 0.35);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35), 0 0 15px rgba(251, 191, 36, 0.08);
 }
 
 .option-card.selected {
-  border-color: var(--primary);
-  background: var(--primary-light);
-  box-shadow: var(--shadow-glow);
+  border-color: #fbbf24;
+  background: linear-gradient(145deg, rgba(251, 191, 36, 0.16) 0%, rgba(217, 119, 6, 0.04) 100%);
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.35), inset 0 0 12px rgba(251, 191, 36, 0.05);
 }
 
 .option-icon-wrapper {
@@ -475,6 +481,7 @@ button, input, select, textarea {
   padding-top: 0.75rem;
   border-top: 1px solid var(--border);
   flex: 0 0 auto;
+  margin-top: auto; /* Push the footer to the bottom of the step container */
 }
 
 .btn-elder {
@@ -840,7 +847,8 @@ button, input, select, textarea {
 
   .options-grid {
     overflow-y: auto;
-    max-height: 48dvh;
+    max-height: none;
+    flex: 1 1 auto;
     padding: 0.2rem;
     align-content: center;
     gap: 0.6rem;
@@ -896,7 +904,8 @@ button, input, select, textarea {
     grid-template-rows: auto;
     gap: 0.5rem;
     overflow-y: auto;
-    max-height: 44dvh;
+    max-height: none;
+    flex: 1 1 auto;
     padding: 0.2rem;
   }
   
@@ -910,13 +919,15 @@ button, input, select, textarea {
 
   .additional-info-wrapper {
     overflow-y: auto;
-    max-height: 46dvh;
+    max-height: none;
+    flex: 1 1 auto;
     gap: 0.5rem;
   }
 
   .receipt-single-column {
     overflow-y: auto;
-    max-height: 44dvh;
+    max-height: none;
+    flex: 1 1 auto;
     padding: 0.2rem;
   }
 
@@ -963,7 +974,8 @@ button, input, select, textarea {
     padding: 0.75rem 0.9rem;
     gap: 0.6rem;
     overflow-y: auto;
-    max-height: 40dvh;
+    max-height: none;
+    flex: 1 1 auto;
   }
 
   .instruction-item {
