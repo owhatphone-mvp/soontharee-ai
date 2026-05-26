@@ -745,12 +745,20 @@ button, input, select, textarea {
 
 /* Step Wizard transitions */
 .step-fade-in {
-  animation: fadeIn 0.4s ease-out forwards;
+  animation: fadeInSpring 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes fadeInSpring {
+  0% { 
+    opacity: 0; 
+    transform: translateY(12px) scale(0.99); 
+    filter: blur(2px);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+    filter: blur(0);
+  }
 }
 
 /* Custom scrollbars */
@@ -1030,4 +1038,84 @@ button, input, select, textarea {
 
 .btn-elder-reset:hover {
   background: var(--bg-tertiary);
+}
+
+/* Custom Elder Input Field */
+.elder-input {
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--bg-secondary);
+  border: 3px solid var(--border);
+  border-radius: 14px;
+  text-align: center;
+  outline: none;
+  transition: var(--transition);
+}
+
+.elder-input:focus {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-glow);
+  background: var(--bg-tertiary);
+}
+
+/* Animated Audio Equalizer Visualizer */
+.audio-visualizer {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 22px;
+  margin-left: 0.5rem;
+}
+
+.visualizer-bar {
+  width: 3.5px;
+  height: 100%;
+  background-color: var(--primary);
+  animation: bounceBar 0.8s ease-in-out infinite alternate;
+  border-radius: 99px;
+}
+
+.visualizer-bar:nth-child(2) { animation-delay: 0.15s; }
+.visualizer-bar:nth-child(3) { animation-delay: 0.3s; }
+.visualizer-bar:nth-child(4) { animation-delay: 0.45s; }
+.visualizer-bar:nth-child(5) { animation-delay: 0.6s; }
+
+@keyframes bounceBar {
+  0% { height: 4px; }
+  100% { height: 22px; }
+}
+
+/* Floating Music Notes Background Decoration */
+.music-notes-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.floating-note {
+  position: absolute;
+  color: rgba(251, 191, 36, 0.12);
+  font-size: 2.2rem;
+  animation: floatNote 8s ease-in-out infinite;
+  opacity: 0;
+}
+
+.floating-note:nth-child(1) { top: 12%; left: 8%; animation-delay: 0s; font-size: 2.6rem; }
+.floating-note:nth-child(2) { top: 68%; left: 6%; animation-delay: 2.5s; font-size: 1.8rem; }
+.floating-note:nth-child(3) { top: 18%; right: 10%; animation-delay: 5s; font-size: 2.3rem; }
+.floating-note:nth-child(4) { top: 72%; right: 8%; animation-delay: 1.2s; font-size: 2rem; }
+
+@keyframes floatNote {
+  0% { transform: translateY(15px) rotate(0deg); opacity: 0; }
+  30% { opacity: 0.4; }
+  70% { opacity: 0.4; }
+  100% { transform: translateY(-35px) rotate(25deg); opacity: 0; }
 }

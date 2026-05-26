@@ -296,7 +296,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
     <div className="wizard-card">
 
 
-      <div className="step-container">
+      <div className="step-container step-fade-in" key={step}>
         {/* STEP 1: Occasion */}
         {step === 1 && (
           <>
@@ -385,6 +385,20 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
                 </div>
               ))}
             </div>
+
+            {/* Custom Genre Input Box */}
+            <div className="custom-input-wrapper" style={{ width: "100%", maxWidth: "450px", margin: "0.5rem auto 0" }}>
+              <label style={{ display: "block", fontSize: "1.15rem", fontWeight: "bold", color: "var(--primary)", marginBottom: "0.5rem", textAlign: "center" }}>
+                หรือพิมพ์แนวเพลง/สไตล์อื่นๆ ที่ต้องการ 🎸
+              </label>
+              <input
+                type="text"
+                value={selectedGenre && !GENRES.some(g => g.name === selectedGenre) ? selectedGenre : ""}
+                onChange={(e) => setSelectedGenre(e.target.value)}
+                placeholder="ตัวอย่าง: สตริง ยุค 80, วัยรุ่นยุค 90, ป๊อปฟังสบาย..."
+                className="elder-input"
+              />
+            </div>
           </>
         )}
 
@@ -443,26 +457,33 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
               {NICKNAMES_BY_GROUP[selectedRel.key]?.map((name) => (
                 <div 
                   key={name}
-                  className="nickname-card"
+                  className={`nickname-card ${selectedNickname === name ? "selected" : ""}`}
                   onClick={() => handleSelectNickname(name)}
                 >
                   {name}
                 </div>
               ))}
-              <div 
-                className="nickname-card special-mic"
-                onClick={() => handleSelectNickname("พูดชื่อเล่นเองใน LINE 🎙️")}
-                style={{ gridColumn: "span 2", fontWeight: "bold" }}
-              >
-                พูดชื่ออื่นผ่านไลน์ 🎙️
-              </div>
+            </div>
+
+            {/* Custom Nickname Input Box (replaces mic button as requested) */}
+            <div className="custom-input-wrapper" style={{ width: "100%", maxWidth: "450px", margin: "0.5rem auto 0" }}>
+              <label style={{ display: "block", fontSize: "1.15rem", fontWeight: "bold", color: "var(--primary)", marginBottom: "0.5rem", textAlign: "center" }}>
+                หรือพิมพ์ชื่อเล่นตรงนี้ ✍️
+              </label>
+              <input
+                type="text"
+                value={selectedNickname && !NICKNAMES_BY_GROUP[selectedRel.key]?.includes(selectedNickname) ? selectedNickname : ""}
+                onChange={(e) => setSelectedNickname(e.target.value)}
+                placeholder="ตัวอย่าง: ลุงประเสริฐ, ป้าต้อย, เจ๊หมวย..."
+                className="elder-input"
+              />
             </div>
           </>
         )}
 
         {/* STEP 8 [NEW]: Additional Info */}
         {step === 8 && (
-          <div className="step-fade-in" style={{ display: "flex", flexDirection: "column", gap: "1rem", height: "100%", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "1rem", height: "100%", justifyContent: "space-between" }}>
             <div className="step-header">
               <h2 className="step-title">อยากใส่เรื่องราวอื่นๆ เพิ่มเติมไหม? ✍️</h2>
               <p className="step-subtitle">เช่น ชื่อรุ่นโรงเรียน/มหาวิทยาลัย ชื่อก๊วนกอล์ฟ หรือความทรงจำที่อยากให้แต่งเพิ่มเติม (หากไม่มีให้แตะข้ามได้เลย)</p>
@@ -494,7 +515,6 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
               
               <button 
                 className="btn-elder btn-elder-next"
-                disabled={!additionalInfo.trim()}
                 onClick={() => handleProceedToSummary(additionalInfo)}
               >
                 บันทึกและไปต่อ ➡️
@@ -505,7 +525,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
 
         {/* STEP 9: Clean Receipt Summary Ticket */}
         {step === 9 && (
-          <div className="step-fade-in" style={{ display: "flex", flexDirection: "column", gap: "1rem", height: "100%", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "1rem", height: "100%", justifyContent: "space-between" }}>
             <div className="step-header">
               <h2 className="step-title" style={{ color: "var(--primary)" }}>ใบสรุปข้อมูลเพลงสั่งทำ 🎁</h2>
               <p className="step-subtitle" style={{ fontSize: "1.2rem", fontWeight: "bold", color: "#fbbf24" }}>
@@ -602,7 +622,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
 
         {/* STEP 10: Clean LINE Submission Screen */}
         {step === 10 && (
-          <div className="step-fade-in" style={{ display: "flex", flexDirection: "column", gap: "1.5rem", height: "100%", justifyContent: "space-between", alignItems: "center" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem", height: "100%", justifyContent: "space-between", alignItems: "center" }}>
             <div className="step-header" style={{ width: "100%", textAlign: "center" }}>
               <h2 className="step-title" style={{ color: "#06c755" }}>ขั้นตอนสุดท้าย: ส่งข้อมูลในแชต LINE 💬</h2>
             </div>

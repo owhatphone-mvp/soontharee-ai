@@ -21,21 +21,40 @@ function App() {
       {/* Background radial glow */}
       <div className="bg-decorations"></div>
 
+      {/* Floating Music Notes */}
+      <div className="music-notes-container">
+        <div className="floating-note">🎵</div>
+        <div className="floating-note">🎶</div>
+        <div className="floating-note">🎼</div>
+        <div className="floating-note">🎵</div>
+      </div>
+
       {/* Header Bar */}
       <header className="app-header">
-        <div className="brand">
-          <div className="brand-icon">
-            <Music size={24} strokeWidth={2.5} />
+        <div className="brand" style={{ width: "100%", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+            <div className="brand-icon">
+              <Music size={24} strokeWidth={2.5} />
+            </div>
+            <div className="brand-name">
+              Soontharee AI
+              <span className="brand-subtitle">สุนทรีย์ AI • เพลงสั่งทำของขวัญความทรงจำผู้สูงอายุ</span>
+            </div>
           </div>
-          <div className="brand-name">
-            Soontharee AI
-            <span className="brand-subtitle">สุนทรีย์ AI • เพลงสั่งทำของขวัญความทรงจำผู้สูงอายุ</span>
+
+          {/* Dancing Audio Equalizer */}
+          <div className="audio-visualizer">
+            <div className="visualizer-bar"></div>
+            <div className="visualizer-bar"></div>
+            <div className="visualizer-bar"></div>
+            <div className="visualizer-bar"></div>
+            <div className="visualizer-bar"></div>
           </div>
         </div>
       </header>
 
       {/* Main Container Frame */}
-      <main className="main-content" style={{ display: "flex", flexDirection: "column", minHeight: 0 }}>
+      <main className="main-content" style={{ display: "flex", flexDirection: "column", minHeight: 0, zIndex: 1 }}>
         <StepWizard
           onAddOrder={handleAddOrder}
         />
