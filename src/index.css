@@ -340,10 +340,10 @@ button, input, select, textarea {
 .step-title {
   font-size: var(--size-title);
   font-weight: 800;
-  background: linear-gradient(135deg, #ffffff 40%, #fbbf24 100%);
+  background: linear-gradient(135deg, #ffffff 20%, #fde047 60%, #f59e0b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .step-subtitle {
@@ -846,7 +846,8 @@ button, input, select, textarea {
   }
   
   .step-header {
-    margin-bottom: 0.3rem;
+    margin-top: 1.5rem; /* Push the step title down for prominence */
+    margin-bottom: 0.8rem;
   }
 
   .step-subtitle {

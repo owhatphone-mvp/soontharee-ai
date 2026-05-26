@@ -301,7 +301,7 @@ Soontharee AI บรรจงเขียนดนตรีรักผูกพ
         {step === 1 && (
           <>
             <div className="step-header">
-              <h2 className="step-title">เลือกโอกาสพิเศษ 🎂</h2>
+              <h2 className="step-title">แต่งเพลงในโอกาสพิเศษ 🎂</h2>
               <p className="step-subtitle">เพลงชิ้นเอกเพื่อคนที่คุณรักชิ้นนี้ จะแต่งขึ้นเนื่องในวันสำคัญใดดี?</p>
             </div>
             <div className="options-grid cols-1-mobile">
